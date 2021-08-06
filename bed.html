@@ -37,14 +37,7 @@
     function preload(){
       img = loadImage('bed.jpg');
     }
-    
-    
-    function setup() {
-      canvas = createCanvas(640, 420);
-      canvas.center();
-      objectDetector = ml5.objectDetector('cocossd', modelLoaded);
-      document.getElementById("status").innerHTML = "Status : Detecting Objects";
-    }
+  
     
     function modelLoaded() {
       console.log("Model Loaded!")
@@ -62,10 +55,6 @@
     
     
     function draw() {
-      if (status != undefined) {
-            image(img, 0, 0, 640, 420);
-        for (var i = 0; i < objects.length; i++) {
-          document.getElementById("status").innerHTML = "Status : Objects Detected";
     
           fill(255, 0, 0);
           percent = floor(objects[i].confidence * 100);
@@ -74,8 +63,8 @@
           stroke(255, 0, 0);
           rect(objects[i].x+100, objects[i].y, objects[i].width-50, objects[i].height+70);
         }
-      }
-    }
+      
+    
     
     </script>
     <style>
